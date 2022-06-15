@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetRequestAPI", "BudgetRequestAPI\BudgetRequestAPI.csproj", "{6EAE6D90-0B88-42F2-A302-A6C59A0535C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetRequestAPI.DataModel", "BudgetRequestAPI.DataModel\BudgetRequestAPI.DataModel.csproj", "{1D4885CA-86B5-46C5-BC78-9DE1FD6D5587}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EAE6D90-0B88-42F2-A302-A6C59A0535C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EAE6D90-0B88-42F2-A302-A6C59A0535C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EAE6D90-0B88-42F2-A302-A6C59A0535C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EAE6D90-0B88-42F2-A302-A6C59A0535C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D4885CA-86B5-46C5-BC78-9DE1FD6D5587}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D4885CA-86B5-46C5-BC78-9DE1FD6D5587}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D4885CA-86B5-46C5-BC78-9DE1FD6D5587}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D4885CA-86B5-46C5-BC78-9DE1FD6D5587}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {64DA1D09-332B-46CD-BC3E-B2FBA3A68BAB}
+	EndGlobalSection
+EndGlobal
