@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BudgetRequestAPI.DataModel.Entities;
+﻿using BudgetRequestAPI.DataModel.Entities;
 using BudgetRequestAPI.Services.Interface;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 
 namespace BudgetRequestAPI.Controllers
@@ -37,7 +32,7 @@ namespace BudgetRequestAPI.Controllers
         }
 
         [HttpPost]
-        [Route("api/Requests")]
+        [Route("api/Request")]
         public int AddRequest(RequestDetail requestDetail)
         {
             return _irequestDetailService.AddRequest(requestDetail);
@@ -63,12 +58,19 @@ namespace BudgetRequestAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<RequestDetail>> GetRequestDetailsByStatus(int userId,int Status)
+        public ActionResult<IEnumerable<RequestDetail>> GetRequestDetailsByStatus(int userId, int Status)
         {
-            return _irequestDetailService.GetRequestDetailsByStatus(userId,Status);
+            return _irequestDetailService.GetRequestDetailsByStatus(userId, Status);
+        }
+
+        [HttpPut]
+        [Route("RequestId")]
+        public int RequestDecisonByManager(int RequestId, int StatusID,string comment)
+        {
+            return _irequestDetailService.RequestDecisonByManager(RequestId, StatusID, comment);
         }
 
 
 
-    } 
+    }
 }

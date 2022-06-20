@@ -24,7 +24,7 @@ namespace BudgetRequestAPI.DataModel.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=INDBANL110\\SQLEXPRESS;Initial Catalog=Budget_Request;Integrated Security=True;");
+                optionsBuilder.UseSqlServer("Name=BudgetRequestDB");
             }
         }
 
@@ -39,9 +39,7 @@ namespace BudgetRequestAPI.DataModel.Entities
 
                 entity.ToTable("RequestDetail");
 
-                entity.Property(e => e.RequestId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("RequestID");
+                entity.Property(e => e.RequestId).HasColumnName("RequestID");
 
                 entity.Property(e => e.AdvAmount).HasColumnName("Adv_Amount");
 
@@ -74,9 +72,7 @@ namespace BudgetRequestAPI.DataModel.Entities
 
                 entity.ToTable("UserInfo");
 
-                entity.Property(e => e.UserId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("UserID");
+                entity.Property(e => e.UserId).HasColumnName("UserID");
 
                 entity.Property(e => e.Designation)
                     .HasMaxLength(100)

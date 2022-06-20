@@ -9,14 +9,16 @@ namespace BudgetRequestAPI.DataModel.Repository.Interface
     {
         List<RequestDetail>GetAllRequestDetails();
 
-        List<RequestDetail> GetRequestById(int id);
+        List<RequestDetail> GetRequestByUserId(int id);
 
-        RequestDetail GetRequest(int id);
+        RequestDetail GetRequestByRequestId(int id);
 
         int AddRequest(RequestDetail requestDetail);
 
         int UpdateRequest(RequestDetail requestDetail);
 
         int DeleteRequest(int id);
+
+        int RequestDecisonByManager(int RequestId, int StatusID ,string comment);
     }
 }

@@ -21,7 +21,7 @@ namespace BudgetRequestAPI.Services
 
         public List<RequestDetail> GetRequestById(int id)
         {
-            return _requestDetailRepository.GetRequestById(id);
+            return _requestDetailRepository.GetRequestByUserId(id);
         }
 
         public int AddRequest(RequestDetail requestDetail)
@@ -36,7 +36,7 @@ namespace BudgetRequestAPI.Services
 
         public RequestDetail GetRequest(int id)
         {
-            return _requestDetailRepository.GetRequest(id);
+            return _requestDetailRepository.GetRequestByRequestId(id);
         }
 
         public int DeleteRequest(int id)
@@ -58,5 +58,12 @@ namespace BudgetRequestAPI.Services
                 return null;
             }
         }
+
+        public int RequestDecisonByManager(int RequestId, int StatusID, string comment)
+        {
+            return _requestDetailRepository.RequestDecisonByManager(RequestId, StatusID, comment);
+        }
+
+
     }
 }

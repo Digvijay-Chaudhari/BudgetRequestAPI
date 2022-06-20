@@ -19,18 +19,16 @@ namespace BudgetRequestAPI.DataModel.Repository
             return _context.RequestDetails.ToList();
         }
 
-        public List<RequestDetail> GetRequestById(int id)
+        public List<RequestDetail> GetRequestByUserId(int id)
         {
             return _context.RequestDetails.Where(x => x.UserId == id).ToList();
         }
 
-        public RequestDetail GetRequest(int id)
+        public RequestDetail GetRequestByRequestId(int id)
         {
             RequestDetail Request1 = _context.RequestDetails.FirstOrDefault(x => x.RequestId == id);
             if (Request1 != null)
             {
-                //_bookStoreContex.Entry(book).State = EntityState.Detached;
-                //return book;
                 _context.Entry(Request1).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
                 return Request1;
             }
@@ -52,7 +50,7 @@ namespace BudgetRequestAPI.DataModel.Repository
 
         public int DeleteRequest(int id)
         {
-            RequestDetail requestDetail = GetRequest(id);
+            RequestDetail requestDetail = GetRequestByRequestId(id);
             if (requestDetail != null)
             {
                 _context.RequestDetails.Remove(requestDetail);
@@ -61,5 +59,27 @@ namespace BudgetRequestAPI.DataModel.Repository
             }
             return 0;
         }
+
+        public int RequestDecisonByManager(int Id, int StatusId,string comment)
+        {
+            //RequestDetail requestDetail = GetRequestByRequestId(RequestId);
+            if (StatusId == 2)
+            {
+                var requestDetail = new RequestDetail { RequestId = Id, RequestStatus = StatusId, Comments = comment };
+                _context.RequestDetails.Attach(requestDetail).Property(x => x.RequestStatus).IsModified = true;
+                _context.RequestDetails.Attach(requestDetail).Property(x => x.Comments).IsModified = true;
+                _context.SaveChanges();
+                return 1;
+            }
+            else
+            {
+                var requestDetail = new RequestDetail { RequestId = Id, RequestStatus = StatusId};
+                _context.RequestDetails.Attach(requestDetail).Property(x => x.RequestStatus).IsModified = true;
+                _context.SaveChanges();
+                return 1;
+            }
+        }
+
+
     }
 }

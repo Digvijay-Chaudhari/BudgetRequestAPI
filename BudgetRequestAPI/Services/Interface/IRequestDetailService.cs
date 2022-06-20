@@ -19,5 +19,7 @@ namespace BudgetRequestAPI.Services.Interface
 
         List<RequestDetail> GetRequestDetailsByStatus(int UserId,int StatusID);
 
+        int RequestDecisonByManager(int RequestId, int StatusID, string comment); 
+
     }
 }
