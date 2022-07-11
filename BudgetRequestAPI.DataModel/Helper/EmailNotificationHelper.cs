@@ -11,7 +11,7 @@ namespace BudgetRequestAPI.DataModel.Helper
     {
         public static string EmailNotification(string fromAddress, string toAddress)
         {
-            MailMessage message = new MailMessage("shubhamvijay2022@gmail.com", "digvijay.onkar@euromonitor.com");
+            MailMessage message = new MailMessage("", "");  //new MailMessage("fromAddress", "toAddress");
             message.Subject = "New request from employee";
             message.Body = "You have a New request for approval";
 
@@ -24,8 +24,8 @@ namespace BudgetRequestAPI.DataModel.Helper
             };
 
             System.Net.NetworkCredential credential = new System.Net.NetworkCredential();
-            credential.UserName = "shubhamvijay2022@gmail.com";
-            credential.Password = "utxhzaxdwarcfhkp";
+            credential.UserName = "";//sender email id
+            credential.Password = "";// sender email password
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = credential;
 
