@@ -1,10 +1,7 @@
 ﻿using BudgetRequestAPI.DataModel.Entities;
 using BudgetRequestAPI.DataModel.Repository.Interface;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BudgetRequestAPI.DataModel.Repository
 {

@@ -29,6 +29,7 @@ namespace BudgetRequestAPI.Services
                new Claim(JwtRegisteredClaimNames.Sub,userInfo.UserName),
                new Claim("userid", userInfo.UserId.ToString(CultureInfo.InvariantCulture)),
                new Claim(ClaimTypes.Role,userInfo.IsManager.ToString()),
+               new Claim("managerId",userInfo.ManagerId.ToString()),
                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 

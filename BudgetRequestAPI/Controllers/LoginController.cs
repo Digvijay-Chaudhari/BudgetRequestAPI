@@ -1,4 +1,5 @@
 ﻿using BudgetRequestAPI.DataModel.Entities;
+using BudgetRequestAPI.ServiceModel.DTO.Request;
 using BudgetRequestAPI.Services.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,7 @@ namespace BudgetRequestAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login([FromBody] UserInfo userInfo )
+        public IActionResult Login([FromBody] LogInDTO userInfo )
         {
             IActionResult response = Unauthorized();
             UserInfo user = _iuserinfoService.AuthenticateUser(userInfo);

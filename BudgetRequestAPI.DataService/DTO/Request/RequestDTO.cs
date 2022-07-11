@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 
-#nullable disable
-
-namespace BudgetRequestAPI.DataModel.Entities
+namespace BudgetRequestAPI.ServiceModel.DTO.Request
 {
-    public partial class RequestDetail
+    public class RequestDTO
     {
-        public RequestDetail()
-        {
-            ForwordedRequestDetails = new HashSet<ForwordedRequestDetail>();
-        }
-
         public int RequestId { get; set; }
         public int? UserId { get; set; }
         public int? ManagerId { get; set; }
@@ -23,8 +15,5 @@ namespace BudgetRequestAPI.DataModel.Entities
         public int? RequestStatus { get; set; }
         public string Comments { get; set; }
         public bool? IsDeleted { get; set; }
-
-        public virtual UserInfo User { get; set; }
-        public virtual ICollection<ForwordedRequestDetail> ForwordedRequestDetails { get; set; }
     }
 }

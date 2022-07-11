@@ -9,6 +9,7 @@ namespace BudgetRequestAPI.DataModel.Entities
     {
         public UserInfo()
         {
+            ForwordedRequestDetails = new HashSet<ForwordedRequestDetail>();
             RequestDetails = new HashSet<RequestDetail>();
         }
 
@@ -22,6 +23,7 @@ namespace BudgetRequestAPI.DataModel.Entities
         public bool? IsManager { get; set; }
         public bool? IsDeleted { get; set; }
 
+        public virtual ICollection<ForwordedRequestDetail> ForwordedRequestDetails { get; set; }
         public virtual ICollection<RequestDetail> RequestDetails { get; set; }
     }
 }

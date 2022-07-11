@@ -16,10 +16,12 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BudgetRequestAPI.DataModel\BudgetRequestAPI.DataModel.csproj" />
+    <ProjectReference Include="..\BudgetRequestAPI.DataService\BudgetRequestAPI.ServiceModel.csproj" />
   </ItemGroup>
 
 </Project>

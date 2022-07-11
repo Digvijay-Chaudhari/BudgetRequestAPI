@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using BudgetRequestAPI.DataModel.DTO;
 using BudgetRequestAPI.DataModel.Entities;
+using BudgetRequestAPI.DataService.DTO.Response;
+using BudgetRequestAPI.ServiceModel.DTO.Request;
 using BudgetRequestAPI.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace BudgetRequestAPI.Controllers
         private readonly IUserInfoService _IUserInfoService;
 
         private readonly IMapper _mapper;
-        public UserInfoController(IUserInfoService userInfoService,IMapper mapper)
+        public UserInfoController(IUserInfoService userInfoService, IMapper mapper)
         {
             _IUserInfoService = userInfoService;
             _mapper = mapper;
@@ -29,8 +30,7 @@ namespace BudgetRequestAPI.Controllers
             return mappingResponse;
         }
 
-        [HttpGet]
-        [Route("id")]
+        [HttpGet("{id}")]
         public UserInfo GetUserInfo(int id)
         {
             return _IUserInfoService.GetUserInfo(id);
@@ -50,9 +50,9 @@ namespace BudgetRequestAPI.Controllers
         }
 
         [HttpGet]
-        public UserInfo AuthenticateUser(UserInfo userInfo)
+        public UserInfo AuthenticateUser(LogInDTO userInfoDto)
         {
-            return _IUserInfoService.AuthenticateUser(userInfo);
+            return _IUserInfoService.AuthenticateUser(userInfoDto);
         }
     }
 }

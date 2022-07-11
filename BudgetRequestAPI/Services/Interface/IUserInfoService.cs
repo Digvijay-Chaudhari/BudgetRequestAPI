@@ -1,4 +1,5 @@
 ﻿using BudgetRequestAPI.DataModel.Entities;
+using BudgetRequestAPI.ServiceModel.DTO.Request;
 using System.Collections.Generic;
 
 namespace BudgetRequestAPI.Services.Interface
@@ -15,6 +16,6 @@ namespace BudgetRequestAPI.Services.Interface
 
        // UserInfo AuthenticateUser(string Uname,string Pasword);
 
-        UserInfo AuthenticateUser(UserInfo userInfo);
+        UserInfo AuthenticateUser(LogInDTO userInfo);
     }
 }

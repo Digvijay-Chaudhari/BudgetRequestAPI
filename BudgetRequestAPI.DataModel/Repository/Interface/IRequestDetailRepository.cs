@@ -1,24 +1,29 @@
-﻿
-using BudgetRequestAPI.DataModel.Entities;
+﻿using BudgetRequestAPI.DataModel.Entities;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 
 namespace BudgetRequestAPI.DataModel.Repository.Interface
 {
-    public interface IRequestDetailRepository 
+    public interface IRequestDetailRepository
     {
-        List<RequestDetail>GetAllRequestDetails();
+        Task<List<RequestDetail>> GetAllRequestDetails();
 
         List<RequestDetail> GetRequestByUserId(int id);
 
-        RequestDetail GetRequestByRequestId(int id);
+        List<RequestDetail> GetRequestByMangerId(int id);
 
-        int AddRequest(RequestDetail requestDetail);
+        Task<List<RequestDetail>> GetHistoryOfRequestByUserId(int id);
 
-        int UpdateRequest(RequestDetail requestDetail);
+        RequestDetail GetRequest(int id);
 
-        int DeleteRequest(int id);
+        Task<int> AddRequest(RequestDetail requestDetail);
 
-        int RequestDecisonByManager(int RequestId, int StatusID ,string comment);
+        Task<int> UpdateRequest(RequestDetail requestDetail);
+
+        Task<int> DeleteRequest(int id);
+
+        Task<int> RequestDecisonByManager(int requestId, int? statusId);
+
+        Task<int> RejectionCommentByManager(int id, string comment);
     }
 }

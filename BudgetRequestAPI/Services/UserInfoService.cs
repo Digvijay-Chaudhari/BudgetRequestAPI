@@ -1,5 +1,6 @@
 ﻿using BudgetRequestAPI.DataModel.Entities;
 using BudgetRequestAPI.DataModel.Repository.Interface;
+using BudgetRequestAPI.ServiceModel.DTO.Request;
 using BudgetRequestAPI.Services.Interface;
 using System.Collections.Generic;
 
@@ -33,7 +34,7 @@ namespace BudgetRequestAPI.Services
             return _iUserInfoRepository.UpdateUserInfo(userInfo);
         }
 
-        public UserInfo AuthenticateUser(UserInfo userInformation)
+        public UserInfo AuthenticateUser(LogInDTO userInformation)
         {
             List<UserInfo> userInfo = GetAllUserInfo();
 
@@ -45,6 +46,7 @@ namespace BudgetRequestAPI.Services
                 {
                     UserName = singleUser.UserName,
                     UserId = singleUser.UserId,
+                    ManagerId = singleUser.ManagerId,
                     IsManager = singleUser.IsManager
                 };
 

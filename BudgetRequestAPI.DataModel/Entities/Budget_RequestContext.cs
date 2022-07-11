@@ -17,6 +17,7 @@ namespace BudgetRequestAPI.DataModel.Entities
         {
         }
 
+        public virtual DbSet<ForwordedRequestDetail> ForwordedRequestDetails { get; set; }
         public virtual DbSet<RequestDetail> RequestDetails { get; set; }
         public virtual DbSet<UserInfo> UserInfos { get; set; }
 
@@ -32,10 +33,46 @@ namespace BudgetRequestAPI.DataModel.Entities
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
+            modelBuilder.Entity<ForwordedRequestDetail>(entity =>
+            {
+                entity.HasKey(e => e.ForwordedRequestId)
+                    .HasName("PK__Forworde__D9BD5F08047560CE");
+
+                entity.ToTable("ForwordedRequestDetail");
+
+                entity.Property(e => e.AdvAmount).HasColumnName("Adv_Amount");
+
+                entity.Property(e => e.Comments).HasMaxLength(200);
+
+                entity.Property(e => e.Description).HasMaxLength(200);
+
+                entity.Property(e => e.EstAmount).HasColumnName("Est_Amount");
+
+                entity.Property(e => e.Purpose)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.RequestDate).HasColumnType("date");
+
+                entity.Property(e => e.RequestId).HasColumnName("RequestID");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+
+                entity.HasOne(d => d.Request)
+                    .WithMany(p => p.ForwordedRequestDetails)
+                    .HasForeignKey(d => d.RequestId)
+                    .HasConstraintName("FK__Forworded__Reque__3C69FB99");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.ForwordedRequestDetails)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK__Forworded__UserI__3D5E1FD2");
+            });
+
             modelBuilder.Entity<RequestDetail>(entity =>
             {
                 entity.HasKey(e => e.RequestId)
-                    .HasName("PK__RequestD__33A8519AE7F9C832");
+                    .HasName("PK__RequestD__33A8519A1D5950CC");
 
                 entity.ToTable("RequestDetail");
 
@@ -44,8 +81,6 @@ namespace BudgetRequestAPI.DataModel.Entities
                 entity.Property(e => e.AdvAmount).HasColumnName("Adv_Amount");
 
                 entity.Property(e => e.Comments).HasMaxLength(200);
-
-                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
 
                 entity.Property(e => e.Description).HasMaxLength(200);
 
@@ -62,13 +97,13 @@ namespace BudgetRequestAPI.DataModel.Entities
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.RequestDetails)
                     .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK__RequestDe__UserI__2E1BDC42");
+                    .HasConstraintName("FK__RequestDe__UserI__267ABA7A");
             });
 
             modelBuilder.Entity<UserInfo>(entity =>
             {
                 entity.HasKey(e => e.UserId)
-                    .HasName("PK__UserInfo__1788CCAC9ED3CDC0");
+                    .HasName("PK__UserInfo__1788CCAC65BC5FB2");
 
                 entity.ToTable("UserInfo");
 
